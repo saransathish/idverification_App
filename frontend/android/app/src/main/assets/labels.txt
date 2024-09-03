@@ -15,7 +15,7 @@ parking meter
 bench
 bird
 cat
-dog
+person
 horse
 sheep
 cow

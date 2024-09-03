@@ -8,8 +8,8 @@ import cv2 # type: ignore
 
 class Model_Initialization():
     def __init__(self):
-        self.model = DeepFace.build_model("VGG-Face")
-        print('VGG-Face model loaded')
+        self.model = DeepFace.build_model("Facenet")
+        print('model loaded')
 obj = Model_Initialization()
 
 def index(request):
@@ -30,7 +30,7 @@ def verify_faces_in_single_image(image_path):
         detections = DeepFace.extract_faces(img_path=image_path, enforce_detection=True) 
         # Pass the loaded model to extract_faces
     except ValueError as e:
-        print("No faces detected in the image.")
+        # print("No faces detected in the image.")
         return False, 0
 
     num_faces = len(detections)
@@ -51,19 +51,16 @@ def uploadImage(request):
     if request.method == 'POST' and request.FILES.get('image'):
         image = request.FILES['image']
 
-        # Generate a unique filename using the current timestamp
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         image_extension = os.path.splitext(image.name)[1]  # Get the original file extension
         new_image_name = f'image_{timestamp}{image_extension}'
 
-        # Save the image with the new filename
         image_path = os.path.join('./getframes/media/Frames', new_image_name)
-        with open(image_path, 'wb+') as destination:
-            for chunk in image.chunks():
-                destination.write(chunk)
+        # with open(image_path, 'wb+') as destination:
+        #     for chunk in image.chunks():
+        #         destination.write(chunk)
         
         is_match, num_faces = verify_faces_in_single_image(image_path) 
-
         if is_match:
 
             print("Faces match!")
@@ -71,7 +68,7 @@ def uploadImage(request):
             
         else:
             print("Faces do not match.")
-            return JsonResponse({'message': f'Faces do not match Number of faces detected! {num_faces}'}, status=200)
+            return JsonResponse({'message': f'Faces do not match! hold the phone stable '}, status=200)
             return JsonResponse({'message': 'YES'}, status=200)
 
         print(f"Number of faces detected: {num_faces}")
