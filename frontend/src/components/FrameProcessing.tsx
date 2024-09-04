@@ -32,8 +32,8 @@ const FrameProcessing: React.FC = () => {
   if (!device) return <LoadingView />;
 
   const [objects, setObjects] = useState<Detected[]>([]);
-  const [toastMessage, setToastMessage] = useState<string | null>(null); // State for toast message
-  const opacity = useRef(new Animated.Value(0)).current; // Opacity for fade-in/fade-out animation
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const opacity = useRef(new Animated.Value(0)).current;
   const cameraRef = useRef<Camera>(null);
 
   const format = useCameraFormat(device, [
