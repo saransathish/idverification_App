@@ -99,7 +99,7 @@ const FrameProcessing: React.FC = () => {
           duration: 300,
           useNativeDriver: true,
         }).start(() => setToastMessage(null));
-      }, 3000); // Hide toast after 3 seconds
+      }, 3000);
     });
   };
 
