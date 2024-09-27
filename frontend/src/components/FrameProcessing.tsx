@@ -124,10 +124,7 @@ const FrameProcessing: React.FC = () => {
             style={[
               styles.detectionFrame,
               {
-                top: top ,
-                left: left,
-                width: right - left,
-                height: bottom - top  ,
+                top: top ,left: left,width: right - left,height: bottom - top  ,
               },
             ]}
           >
@@ -149,39 +146,16 @@ const FrameProcessing: React.FC = () => {
 
 const styles = StyleSheet.create({
   detectionFrame: {
-    position: 'absolute',
-    borderWidth: 6,
-    borderColor: '#00ff00',
-    zIndex: 9,
-  },
+    position: 'absolute', borderWidth: 6, borderColor: '#00ff00',zIndex: 9,},
   detectionFrameLabel: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0, 255, 0, 0.5)',
-    padding: 2,
-    borderRadius: 3,
-    top: 0,
-    left: 0,
-  },
+    position: 'absolute',backgroundColor: 'rgba(0, 255, 0, 0.5)',padding: 2,borderRadius: 3,top: 0,left: 0,},
   labelText: {
-    color: '#fff',
-    fontSize: 12,
+    color: '#fff',fontSize: 12,
   },
   toast: {
-    position: 'absolute',
-    bottom: 100,
-    left: 20,
-    right: 20,
-    padding: 15,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    borderRadius: 5,
-    zIndex: 10,
-  },
+    position: 'absolute',bottom: 100,left: 20,right: 20,padding: 15,backgroundColor: 'rgba(0, 0, 0, 0.7)',borderRadius: 5,zIndex: 10,},
   toastText: {
-    color: '#fff',
-    textAlign: 'center',
-  },
+    color: '#fff',textAlign: 'center',},
 });
 
 export default FrameProcessing;
-
-
